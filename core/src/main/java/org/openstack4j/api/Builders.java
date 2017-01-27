@@ -19,10 +19,7 @@ import org.openstack4j.model.gbp.builder.PolicyRuleBuilder;
 import org.openstack4j.model.gbp.builder.PolicyRuleSetBuilder;
 import org.openstack4j.model.gbp.builder.PolicyTargetBuilder;
 import org.openstack4j.model.gbp.builder.PolicyTargetGroupBuilder;
-import org.openstack4j.model.heat.SoftwareConfig;
-import org.openstack4j.model.heat.StackCreate;
-import org.openstack4j.model.heat.StackUpdate;
-import org.openstack4j.model.heat.Template;
+import org.openstack4j.model.heat.*;
 import org.openstack4j.model.heat.builder.*;
 import org.openstack4j.model.identity.v2.builder.IdentityV2Builders;
 import org.openstack4j.model.identity.v3.builder.*;
@@ -37,6 +34,7 @@ import org.openstack4j.model.network.ext.builder.*;
 import org.openstack4j.model.sahara.builder.*;
 import org.openstack4j.model.storage.block.builder.BlockQuotaSetBuilder;
 import org.openstack4j.model.storage.block.builder.StorageBuilders;
+import org.openstack4j.model.storage.block.builder.VolumeBackupCreateBuilder;
 import org.openstack4j.model.storage.block.builder.VolumeBuilder;
 import org.openstack4j.model.storage.block.builder.VolumeSnapshotBuilder;
 import org.openstack4j.model.storage.block.builder.VolumeTypeBuilder;
@@ -67,10 +65,7 @@ import org.openstack4j.openstack.gbp.domain.GbpPolicyRuleSet;
 import org.openstack4j.openstack.gbp.domain.GbpPolicyTarget;
 import org.openstack4j.openstack.gbp.domain.GbpPolicyTargetGroupCreate;
 import org.openstack4j.openstack.heat.builder.HeatBuilders;
-import org.openstack4j.openstack.heat.domain.HeatSoftwareConfig;
-import org.openstack4j.openstack.heat.domain.HeatStackCreate;
-import org.openstack4j.openstack.heat.domain.HeatStackUpdate;
-import org.openstack4j.openstack.heat.domain.HeatTemplate;
+import org.openstack4j.openstack.heat.domain.*;
 import org.openstack4j.openstack.identity.v2.builder.KeystoneV2Builders;
 import org.openstack4j.openstack.identity.v3.builder.KeystoneV3Builders;
 import org.openstack4j.openstack.identity.v3.domain.*;
@@ -89,6 +84,7 @@ import org.openstack4j.openstack.sahara.domain.*;
 import org.openstack4j.openstack.storage.block.builder.CinderBuilders;
 import org.openstack4j.openstack.storage.block.domain.CinderBlockQuotaSet;
 import org.openstack4j.openstack.storage.block.domain.CinderVolume;
+import org.openstack4j.openstack.storage.block.domain.CinderVolumeBackupCreate;
 import org.openstack4j.openstack.storage.block.domain.CinderVolumeSnapshot;
 import org.openstack4j.openstack.storage.block.domain.CinderVolumeType;
 import org.openstack4j.openstack.tacker.builders.TackerBuilders;
@@ -209,6 +205,14 @@ public class Builders {
     public static VolumeSnapshotBuilder volumeSnapshot() {
         return CinderVolumeSnapshot.builder();
     }
+    
+    /**
+     * The builder to create a Block Volume Backup
+     * @return the volume backup builder
+     */
+    public static VolumeBackupCreateBuilder volumeBackupCreate(){
+    	return CinderVolumeBackupCreate.builder();
+    }
 
     /**
      * The builder to create a Compute/Nova Floating IP
@@ -289,6 +293,14 @@ public class Builders {
      */
     public static StackUpdateBuilder stackUpdate() {
         return HeatStackUpdate.builder();
+    }
+
+    /**
+     * The builder to create a {@link ResourceHealth}
+     * @return
+     */
+    public static ResourceHealthBuilder resourceHealth() {
+        return HeatResourceHealth.builder();
     }
 
     /**

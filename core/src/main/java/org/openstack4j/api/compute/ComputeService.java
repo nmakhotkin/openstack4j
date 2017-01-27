@@ -5,6 +5,7 @@ import java.util.List;
 import org.openstack4j.api.compute.ext.FloatingIPDNSService;
 import org.openstack4j.api.compute.ext.HypervisorService;
 import org.openstack4j.api.compute.ext.MigrationService;
+import org.openstack4j.api.compute.ext.ServicesService;
 import org.openstack4j.api.compute.ext.ZoneService;
 import org.openstack4j.common.RestService;
 import org.openstack4j.model.common.Extension;
@@ -115,4 +116,17 @@ public interface ComputeService extends RestService {
 	 * Host Aggregates Management Service
 	 */
 	HostAggregateService hostAggregates();
+	
+	/**
+	 * Server Tag Management Service
+	 * @return ServerTag Service
+	 */
+	ServerTagService serverTags();
+	
+    /**
+     *  Compute services service
+     *  
+     * @return ServicesService
+     */
+    ServicesService services();
 }
